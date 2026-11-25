@@ -10,7 +10,9 @@
   const alScroll = () => {
     pendiente = false;
     const y = scrollY, alto = document.documentElement.scrollHeight - innerHeight;
-    cab.classList.toggle('solida', y > (hero ? hero.offsetHeight - 80 : 40));
+    const solida = y > (hero ? hero.offsetHeight - 80 : 40);
+    cab.classList.toggle('solida', solida);
+    cab.classList.toggle('sobre-hero', !solida && y > 12);
     cab.style.setProperty('--p', alto > 0 ? Math.min(1, y / alto).toFixed(4) : 0);
     if (barra) barra.classList.toggle('visible', y > innerHeight * .7);
   };
